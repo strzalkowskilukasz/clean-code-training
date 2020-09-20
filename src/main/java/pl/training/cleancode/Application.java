@@ -2,6 +2,7 @@ package pl.training.cleancode;
 
 import lombok.extern.java.Log;
 import pl.training.cleancode.payments.FakePaymentService;
+import pl.training.cleancode.payments.IncrementalPaymentIdGenerator;
 import pl.training.cleancode.payments.LocalMoney;
 import pl.training.cleancode.payments.PaymentRequest;
 
@@ -9,7 +10,8 @@ import pl.training.cleancode.payments.PaymentRequest;
 public class Application {
 
     public static void main(String[] args) {
-        var paymentService = new FakePaymentService();
+        var paymentIdGenerator = new IncrementalPaymentIdGenerator();
+        var paymentService = new FakePaymentService(paymentIdGenerator);
         var paymentRequest = PaymentRequest.builder()
                 .money(LocalMoney.of(1_000))
                 .build();
