@@ -1,4 +1,4 @@
-package pl.training.cleancode;
+package pl.training.cleancode.payments;
 
 import org.javamoney.moneta.FastMoney;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,11 +7,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import pl.training.cleancode.payments.*;
+import org.springframework.context.ApplicationEventPublisher;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.when;
+import static org.mockito.AdditionalAnswers.returnsFirstArg;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class FakePaymentServiceTest {
@@ -24,12 +26,17 @@ public class FakePaymentServiceTest {
 
     @Mock
     private PaymentIdGenerator paymentIdGenerator;
+    @Mock
+    private PaymentRepository paymentRepository;
+    @Mock
+    private ApplicationEventPublisher eventPublisher;
     private Payment payment;
 
     @BeforeEach
     void setUp() {
         when(paymentIdGenerator.getNext()).thenReturn(PAYMENT_ID);
-        FakePaymentService paymentService = new FakePaymentService(paymentIdGenerator);
+        when(paymentRepository.save(any(Payment.class))).then(returnsFirstArg());
+        var paymentService = new FakePaymentService(paymentIdGenerator, paymentRepository, eventPublisher);
         payment = paymentService.process(PAYMENT_REQUEST);
     }
 
@@ -55,6 +62,12 @@ public class FakePaymentServiceTest {
     @Test
     void shouldAssignStartedStatusToCreatedPayment() {
         assertEquals(PaymentStatus.STARTED, payment.getStatus());
+    }
+
+    @DisplayName("Should save created payment")
+    @Test
+    void shouldSaveCreatedPayment() {
+        verify(paymentRepository).save(payment);
     }
 
 }
