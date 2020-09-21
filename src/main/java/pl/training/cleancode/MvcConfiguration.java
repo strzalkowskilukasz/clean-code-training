@@ -27,7 +27,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("pl.training.shop"))
+                .apis(RequestHandlerSelectors.basePackage("pl.training.cleancode"))
                 .build();
     }
 
