@@ -1,11 +1,11 @@
 package pl.training.cleancode.payments;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class FakePaymentService implements PaymentService {
 
