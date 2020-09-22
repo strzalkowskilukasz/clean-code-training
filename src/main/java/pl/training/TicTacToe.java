@@ -48,7 +48,7 @@ public class TicTacToe {
     }
 
     private boolean allFieldsAreTaken() {
-        return BOARD_SIZE - takenFields().size() == 0;
+        return BOARD_SIZE - crossFields.size() - circleFields.size() == 0;
     }
 
     private boolean playerTookWinningSequence() {
