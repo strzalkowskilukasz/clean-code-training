@@ -5,6 +5,8 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.nio.file.Paths;
+
 @Configuration
 public class PaymentsConfiguration {
 
@@ -21,6 +23,11 @@ public class PaymentsConfiguration {
     @Bean
     public PaymentConsoleLogger paymentConsoleLogger(MessageSource messageSource) {
         return new PaymentConsoleLogger(messageSource);
+    }
+
+    @Bean
+    public PaymentFileLogger paymentFileLogger() {
+        return new PaymentFileLogger(Paths.get("payments-log.txt"));
     }
 
     @Bean
