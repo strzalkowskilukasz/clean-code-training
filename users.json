@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "emailAddress": "jan.kowalski@xcctra222inig.pl"
+    }
+  ]
+}

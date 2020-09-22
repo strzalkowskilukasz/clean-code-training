@@ -21,7 +21,7 @@ public class User {
     @Pattern(regexp = "[A-Za-z]+")
     @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Name
+    @Name(message = "sdfds")
     @Column(name = "last_name", nullable = false)
     private String lastName;
     @Column(unique = true, nullable = false)
