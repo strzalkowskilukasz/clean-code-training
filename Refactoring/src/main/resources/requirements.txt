@@ -1,0 +1,13 @@
+-Wypożyczanie filmy DVD
+-Dodawanie filmów DVD
+-Podczas zwrotu filmu opłata jest naliczana na podstawie
+    a) typ filmu
+    b) ilość dni
+    c) zebranych punktów
+    d) bonus dla stałych klientów
+-Generowanie podsumowania
+
+
+
+
+-munusowe kopie - validacja

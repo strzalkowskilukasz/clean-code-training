@@ -1,0 +1,7 @@
+https://sourcemaking.com
+https://www.visual-paradigm.com/guide/uml-unified-modeling-language/overview-of-the-14-uml-diagram-types
+https://bellekens.com/2012/02/21/uml-best-practice-5-rules-for-better-uml-diagrams
+https://formal.iti.kit.edu/~beckert/teaching/Verification-SS06/10OCL.pdf
+https://st.inf.tu-dresden.de/files/general/OCLByExampleLecture.pdf
+https://www.amazon.com/Applying-UML-Patterns-Introduction-Object-Oriented/dp/0131489062
+https://www.amazon.com/Systems-Analysis-Design-Alan-Dennis/dp/1118037421
